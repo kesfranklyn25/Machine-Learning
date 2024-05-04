@@ -11,7 +11,7 @@ import numpy as np
 import pickle
 import streamlit as st
 
-loaded_model = pickle.load(open('/kesfranklyn25/Machine-Learning/blob/main/Loan_Approval_Model.sav', 'rb'))
+loaded_model = pickle.load(open('/kesfranklyn25/Machine-Learning/Loan_Approval_Model.sav', 'rb'))
 
 # user_input = (3, 1, 0, 9100000, 29700000, 20, 506, 7100000, 4500000, 33300000, 12800000) # loan application for approval
 # Function to predict loan approval or rejection using our predictive model
