@@ -4,4 +4,3 @@ numpy==1.24.3
 streamlit==1.34.0
 matplotlib==3.7.1
 seaborn==0.12.2
-imblearn==0.11.0
