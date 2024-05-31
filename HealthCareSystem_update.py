@@ -48,7 +48,7 @@ if selection == 'DT Prediction':
         Age = st.text_input('Patient Age',placeholder = "Patient\'s age", key = 'Age')
 
     prediction = ''
-    with col1:
+    with col2:
         if st.button('Diabetes Test Result'):
             outcome = dt.predict([[Pregnancies,Glucose,BloodPressure,SkinThickness,
                           Insulin,BMI,DiabetesPedigreeFunction,
@@ -58,7 +58,7 @@ if selection == 'DT Prediction':
             else:
                 prediction = 'NOT DIABETIC'
             
-    with col2:
+    with col1:
         st.success(prediction)
 
 elif selection == 'RF Prediction':
