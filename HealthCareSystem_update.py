@@ -81,7 +81,7 @@ elif selection == 'RF Prediction':
         Age = st.text_input('Patient Age',placeholder = "Patient\'s age", key = 'Age')
 
     prediction = ''
-    with col1:
+    with col2:
         if st.button('Diabetes Test Result'):
             outcome = rf.predict([[Pregnancies,Glucose,BloodPressure,SkinThickness,
                           Insulin,BMI,DiabetesPedigreeFunction,
@@ -91,7 +91,7 @@ elif selection == 'RF Prediction':
             else:
                 prediction = 'NOT DIABETIC'
             
-    with col2:
+    with col1:
         st.success(prediction)
 
 else:
@@ -114,7 +114,7 @@ else:
         Age = st.text_input('Patient Age',placeholder = "Patient\'s age", key = 'Age')
 
     prediction = ''
-    with col1:
+    with col2:
         if st.button('Diabetes Test Result'):
             outcome = svm.predict([[Pregnancies,Glucose,BloodPressure,SkinThickness,
                           Insulin,BMI,DiabetesPedigreeFunction,
@@ -124,5 +124,5 @@ else:
             else:
                 prediction = 'NOT DIABETIC'
             
-    with col2:
+    with col1:
         st.success(prediction)
