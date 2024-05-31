@@ -7,19 +7,49 @@ from streamlit_option_menu import option_menu
 
 # Load models
 
-dt = pickle.load(open('dt.sav','rb'))
-rf = pickle.load(open('rf.sav','rb'))
-svm = pickle.load(open('svm.sav','rb'))
+dt = pickle.load(open('C:/Users/Fatima/Desktop/HealthCare/dt.sav','rb'))
+rf = pickle.load(open('C:/Users/Fatima/Desktop/HealthCare/rf.sav','rb'))
+svm = pickle.load(open('C:/Users/Fatima/Desktop/HealthCare/svm.sav','rb'))
 
-# Create a sidebar menu for the models
+# Models loading ends here.
+
+# Set the title page of the web app page
+st.set_page_config(
+    page_title= 'Healthcare System - Diabetes Prediction',
+    page_icon='tree-fill'
+    
+    )
+# Title page ends here
+
+# Hidden the visibilty of the deploy/share and the settings menu on the top right 
+# corner of the web app page
+st.markdown("""
+            <style>
+                .eyeqlp51.st-emotion-cache-1pbsqtx.ex0cdmw0
+                { visibility: hidden;
+                    }
+                .st-emotion-cache-1wbqy5l{
+                    visibility: hidden;
+                    position: None;}
+            </style>
+            
+            """, unsafe_allow_html=True)
+
+# deploy/share and settings ends here
+
+# set the side menu background color
 st.markdown("""
 <style>
     [data-testid=stSidebar] {
-        background-color: #ff000050;
+        background-color: #40e0d0;
+        
+
     }
 </style>
 """, unsafe_allow_html=True)
+# side menu background color ends here
 
+# Create a sidebar menu for the models
 with st.sidebar:
     selection = option_menu('Menu', 
                             ['DT Prediction',
@@ -27,10 +57,21 @@ with st.sidebar:
                             'SVM Prediction'],
                             icons = ['tree', 'tree-fill', 'activity'],
                             default_index = 0)
+    st.write('This app was developed for the prediction of diabetes given the relevant \
+             parameters. Machine learning algorithms used in the implementation of this\
+            app are Decision tree, Random forest and Support vector machine')
+# sidebar menu creation ends here
 
+# Code the different  models
 if selection == 'DT Prediction':
     # Give the page a title
-    st.title('ML- Prediction Using Decision Tree')
+    # st.title('ML- Prediction Using Decision Tree')
+    html_temp = """
+    <div style="background:#40e0d0 ;padding:10px">
+    <h2 style="color:white;text-align:center;">Decision Tree Prediction </h2>
+    </div>
+    """
+    st.markdown(html_temp, unsafe_allow_html = True)
     col1, col2 = st.columns(2)
     # Get user data for prediction
     with col1:
@@ -63,7 +104,12 @@ if selection == 'DT Prediction':
 
 elif selection == 'RF Prediction':
     # Give the page a title
-    st.title('ML- Prediction Using Random Forest')
+    html_temp = """
+    <div style="background:#40e0d0 ;padding:10px">
+    <h2 style="color:white;text-align:center;">Random Forest Prediction </h2>
+    </div>
+    """
+    st.markdown(html_temp, unsafe_allow_html = True)
     col1, col2 = st.columns(2)
     # Get user data for prediction
     with col1:
@@ -96,7 +142,12 @@ elif selection == 'RF Prediction':
 
 else:
     # Give the page a title
-    st.title('ML- Prediction Using Support Vector Machine')
+    html_temp = """
+    <div style="background:#40e0d0 ;padding:10px">
+    <h2 style="color:white;text-align:center;">Support Vector Machine Prediction </h2>
+    </div>
+    """
+    st.markdown(html_temp, unsafe_allow_html = True)
     col1, col2 = st.columns(2)
     # Get user data for prediction
     with col1:
@@ -126,3 +177,4 @@ else:
             
     with col1:
         st.success(prediction)
+# the different  models coding ends here
